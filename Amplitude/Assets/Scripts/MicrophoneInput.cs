@@ -87,7 +87,7 @@ public class MicrophoneInput
 
     #region " Capture Device "
 
-    protected void OnInitialize() 
+    public void OnInitialize() 
 	{
         // Fetch reference to audiosource
         s_audioSource = Camera.main.GetComponent<AudioSource>();
@@ -108,22 +108,12 @@ public class MicrophoneInput
 
     public void Update() 
 	{
-        if (m_isCalibrating)
+        if (Microphone.GetPosition(CurrentDeviceName) > 0)
         {
-            // Add current volume-value
-            m_volumeCalibrationList.Add(GetAverageVolume());
+            s_audioSource.Play();
+            m_micStartingUp = false;
         }
-     
-        if(m_micStartingUp)
-        {
-            if (Microphone.GetPosition(CurrentDeviceName) > 0)
-            {
-                s_audioSource.Play();
-                m_micStartingUp = false;
-            }
-        }
-
-	}
+    }
 
     public void Reset()
     {
