@@ -4,3 +4,23 @@ Amplitude/Logs
 Amplitude/obj
 Amplitude/.vs/Amplitude/xs/UserPrefs.xml
 Amplitude/.vs/Amplitude/xs/project-cache
+
+
+## ---------------- ##
+##   WWise stuff    ##
+## ---------------- ##
+
+# project stuff
+WWiseProject/.cache/
+WWiseProject/*.prof
+WwiseProject/*_WwiseProject.*.validationcache
+WwiseProject/*_WwiseProject.*.wsettings
+WwiseProject/**/*.akd
+Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+
+## --------------- ##
+## End WWise Stuff ##
+## --------------- ##
+
+# Mac stuff
+.DS_store
