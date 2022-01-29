@@ -36,7 +36,7 @@ public class MicrophoneInput
     private static float loudestVolume;
     private static float highestPitch;
 
-	#endregion
+	#endregion  
 
     #region " Properties "
 
