@@ -29,10 +29,8 @@ public class MicrophoneInput
     // Currently available devices (chached list)
     private static string[] availableDevices;
 
-    private bool m_micStartingUp;
-
-    private static float s_loudestVolume;
-    private static float s_highestPitch;
+    private static float loudestVolume;
+    private static float highestPitch;
 
 	#endregion
 
@@ -56,9 +54,9 @@ public class MicrophoneInput
 
     public static bool IsRecording { get { return Microphone.IsRecording(CurrentDeviceName); } }
 
-    public static float LoudestVolume { get { return s_loudestVolume; } }
+    public static float LoudestVolume { get { return loudestVolume; } }
 
-    public static float HighestPitch { get { return s_highestPitch; } }
+    public static float HighestPitch { get { return highestPitch; } }
 
     public static int AvailableMics { get { return availableDevices.Length; } }
 
@@ -66,20 +64,15 @@ public class MicrophoneInput
 
     #region " Capture Device "
 
-    public void OnInitialize() 
+    public void Initialize() 
 	{
         // Fetch reference to audiosource
         audioSource = Camera.main.GetComponent<AudioSource>();
 
         // Init statistics
-        s_loudestVolume = 0;
-        s_highestPitch = 0;
+        loudestVolume = 0;
+        highestPitch = 0;
 
-        InitDeviceList();
-	}
-
-    public static void InitDeviceList()
-    {
         // Fetch available devices & current once
         availableDevices = Microphone.devices;
         currentDeviceName = availableDevices.Length > 0 ? availableDevices[microphoneDeviceIndex] : "None";
@@ -90,14 +83,7 @@ public class MicrophoneInput
         if (Microphone.GetPosition(CurrentDeviceName) > 0)
         {
             audioSource.Play();
-            m_micStartingUp = false;
         }
-    }
-
-    public void Reset()
-    {
-        StopRecording();
-        StartRecording();
     }
 
 	#endregion
@@ -115,23 +101,12 @@ public class MicrophoneInput
         // Start recording
         audioSource.clip = Microphone.Start(CurrentDeviceName, true, 1, 44100);
         audioSource.loop = true;
-
-        // Wait until recording has started
-        m_micStartingUp = true;
     }
 
     public void StopRecording()
     {
         Microphone.End(CurrentDeviceName);
         audioSource.Stop();
-    }
-
-    /// <summary>
-    /// Returns the english musical notation of the current highest pitch (stat-value)
-    /// </summary>
-    public string GetHighestPitchNote()
-    {
-        return GetPitchNote(HighestPitch);
     }
 
     public string GetPitchNote(float pitch)
@@ -217,12 +192,12 @@ public class MicrophoneInput
 
     #endregion
 
-    #region " Private Methods "
+    #region " Static Methods "
 
     /// <summary>
     /// Returns the average volume from the current input source
     /// </summary>
-    public float GetAverageVolume(int sampleCount = 256)
+    public static float GetAverageVolume(int sampleCount = 256)
    {
        // Get samples
        float[] sampleData = new float[sampleCount];
@@ -240,12 +215,12 @@ public class MicrophoneInput
         absoluteSum = (absoluteSum / sampleCount) * 100;
 
         // Update statistics
-        if (absoluteSum > s_loudestVolume) s_loudestVolume = absoluteSum;
+        if (absoluteSum > loudestVolume) loudestVolume = absoluteSum;
 
        return absoluteSum;
    }
 
-    public float GetPitch(int sampleCount = 256)
+    public static float GetPitch(int sampleCount = 256)
    {
        float[] spectrum = new float[sampleCount];
         float maxV = 0;
@@ -278,7 +253,7 @@ public class MicrophoneInput
         freqN = freqN * (AudioSettings.outputSampleRate / 2) / sampleCount;
 
         // Update statistics
-        if (freqN > s_highestPitch) s_highestPitch = freqN;
+        if (freqN > highestPitch) highestPitch = freqN;
 
         return freqN;
    }

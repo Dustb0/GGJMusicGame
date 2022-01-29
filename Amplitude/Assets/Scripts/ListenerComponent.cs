@@ -9,8 +9,7 @@ public class ListenerComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MicrophoneInput.InitDeviceList();
-        input.OnInitialize();
+        input.Initialize();
 
         Debug.Log(MicrophoneInput.CurrentDeviceName);
 
@@ -22,8 +21,8 @@ public class ListenerComponent : MonoBehaviour
     {
         input.Update();
 
-        float volume = input.GetAverageVolume();
-        float pitch = input.GetPitch();
+        float volume = MicrophoneInput.GetAverageVolume();
+        float pitch = MicrophoneInput.GetPitch();
 
         Debug.Log($"Volume: {volume}   Pitch: {pitch}");
     }
