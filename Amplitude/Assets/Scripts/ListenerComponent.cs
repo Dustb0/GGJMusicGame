@@ -38,24 +38,17 @@ public class ListenerComponent : MonoBehaviour
     {
         input.Update();
 
-<<<<<<< Updated upstream
-        float volume = MicrophoneInput.GetAverageVolume();
-        float pitch = MicrophoneInput.GetPitch();
-
-        Debug.Log($"{MicrophoneInput.CurrentDeviceName} Volume: {volume}   Pitch: {pitch}");
-=======
         float pitchheightLast = Unity.Mathematics.math.remap(inputPitchRange.x, inputPitchRange.y, outputHeightRange.x, outputHeightRange.y, pitch);
-        pitch_new = input.GetPitch(sampleCount);
+        pitch_new = MicrophoneInput.GetPitch(sampleCount);
         pitch = pitch_new - ((pitch_new - pitch) / 1.1f);
         pitchHeight = Unity.Mathematics.math.remap(inputPitchRange.x, inputPitchRange.y, outputHeightRange.x, outputHeightRange.y, pitch);
         pitchTangent = pitchHeight - pitchheightLast;
 
         float volumeheightLast = Unity.Mathematics.math.remap(inputVolumeRange.x, inputVolumeRange.y, outputHeightRange.x, outputHeightRange.y, volume);
-        volume = input.GetAverageVolume(sampleCount);
+        volume = MicrophoneInput.GetAverageVolume(sampleCount);
         volumeHeight = Unity.Mathematics.math.remap(inputVolumeRange.x, inputVolumeRange.y, outputHeightRange.x, outputHeightRange.y, volume);
         volumeTangent = volumeHeight - volumeheightLast;
 
         Debug.Log(pitch);
->>>>>>> Stashed changes
     }
 }
