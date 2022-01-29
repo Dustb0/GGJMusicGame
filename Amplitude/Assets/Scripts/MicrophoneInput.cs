@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 /// <summary>
 /// Captures sound-input and calculates the average loudness and pitch
@@ -20,6 +21,9 @@ public class MicrophoneInput
     // Reference to the audiosource
     private static AudioSource audioSource;
 
+    // Reference to the non-static component instance
+    private static MicrophoneInput instance;
+
     // The current device index
     private static int microphoneDeviceIndex = 0;
 
@@ -36,12 +40,7 @@ public class MicrophoneInput
 
     #region " Properties "
 
-    public static int CurrentDeviceIndex { get { return microphoneDeviceIndex; } 
-        set { 
-            microphoneDeviceIndex = value;
-            // Fetch device name, kinda costy so only do it when changing microphone
-            currentDeviceName = availableDevices[microphoneDeviceIndex]; 
-        } }
+    public static int CurrentDeviceIndex { get { return microphoneDeviceIndex; } }
 
     public static string CurrentDeviceName 
     { 
@@ -58,7 +57,15 @@ public class MicrophoneInput
 
     public static float HighestPitch { get { return highestPitch; } }
 
-    public static int AvailableMics { get { return availableDevices.Length; } }
+    public static int AvailableMicCount { get { return availableDevices.Length; } }
+
+    public static string[] AvailableMics { get { return availableDevices; } }
+
+    #endregion
+
+    #region " Events "
+
+    public static UnityEvent DeviceListChanged = new UnityEvent();
 
     #endregion
 
@@ -66,6 +73,8 @@ public class MicrophoneInput
 
     public void Initialize() 
 	{
+        instance = this;
+
         // Fetch reference to audiosource
         audioSource = Camera.main.GetComponent<AudioSource>();
 
@@ -76,6 +85,7 @@ public class MicrophoneInput
         // Fetch available devices & current once
         availableDevices = Microphone.devices;
         currentDeviceName = availableDevices.Length > 0 ? availableDevices[microphoneDeviceIndex] : "None";
+        DeviceListChanged.Invoke();
     }
 
     public void Update() 
@@ -193,6 +203,28 @@ public class MicrophoneInput
     #endregion
 
     #region " Static Methods "
+
+    public static void ChangeMic(int deviceIndex)
+    {
+        bool wasRecording = false;
+
+        if (audioSource.isPlaying)
+        {
+            wasRecording = true;
+            instance.StopRecording();
+        }
+
+
+        microphoneDeviceIndex = deviceIndex;
+
+        // Fetch device name, kinda costy so only do it when changing microphone
+        currentDeviceName = availableDevices[microphoneDeviceIndex];
+
+        if (wasRecording)
+        {
+            instance.StartRecording();
+        }
+    }
 
     /// <summary>
     /// Returns the average volume from the current input source

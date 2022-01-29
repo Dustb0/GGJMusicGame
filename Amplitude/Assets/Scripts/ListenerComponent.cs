@@ -24,6 +24,6 @@ public class ListenerComponent : MonoBehaviour
         float volume = MicrophoneInput.GetAverageVolume();
         float pitch = MicrophoneInput.GetPitch();
 
-        Debug.Log($"Volume: {volume}   Pitch: {pitch}");
+        Debug.Log($"{MicrophoneInput.CurrentDeviceName} Volume: {volume}   Pitch: {pitch}");
     }
 }
