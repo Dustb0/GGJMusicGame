@@ -20,10 +20,11 @@ public class Rb2DMovement : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (transform.position.y <= -50)
         {
             transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
+        }*/
 
         if (Input.GetButtonDown(m_jumpButton) && m_canJump)
         {

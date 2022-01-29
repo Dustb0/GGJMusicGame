@@ -36,8 +36,8 @@ public class VoiceMeshGenerator : MonoBehaviour
 
     public void StartGenerating()
     {
-        topVertices.Add(new Vector2(generationOffset.x, mic.pitchHeight));
-        topVertices.Add(new Vector2(generationOffset.x, mic.pitchHeight));
+        topVertices.Add(new Vector2(generationOffset.x, mic.pitchHeightSmoothed));
+        topVertices.Add(new Vector2(generationOffset.x, mic.pitchHeightSmoothed));
         isGenerating = true;
     }
 
@@ -54,12 +54,12 @@ public class VoiceMeshGenerator : MonoBehaviour
             horizontalLength += generationSpeed * Time.deltaTime;
             distanceToNewPoint -= generationSpeed * Time.deltaTime;
 
-            topVertices[topVertices.Count - 1] = new Vector2(generationOffset.x + horizontalLength, mic.pitchHeight);
+            topVertices[topVertices.Count - 1] = new Vector2(generationOffset.x + horizontalLength, mic.pitchHeightSmoothed);
 
             if (distanceToNewPoint < 0f)
             {
                 distanceToNewPoint += pointSpacing;
-                topVertices.Add(new Vector2(generationOffset.x + horizontalLength, mic.pitchHeight));
+                topVertices.Add(new Vector2(generationOffset.x + horizontalLength, mic.pitchHeightSmoothed));
             }
 
             UpdateMesh();
