@@ -21,7 +21,10 @@ public class ListenerComponent : MonoBehaviour
     void Update()
     {
         input.Update();
-        Debug.Log("Volume:" + input.GetAverageVolume());
-        Debug.Log("Pitch:" + input.GetPitch());
+
+        float volume = input.GetAverageVolume();
+        float pitch = input.GetPitch();
+
+        Debug.Log($"Volume: {volume}   Pitch: {pitch}");
     }
 }

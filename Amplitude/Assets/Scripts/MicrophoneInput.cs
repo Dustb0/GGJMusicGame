@@ -18,29 +18,18 @@ public class MicrophoneInput
 	#region " Private Fields "
     
     // Reference to the audiosource
-    private static AudioSource s_audioSource;
-
-    // The calibrated base loudness that will be subtracted from the recorded loudness during calculation
-    private static float s_baseLoudness = 0;
+    private static AudioSource audioSource;
 
     // The current device index
-    private static int s_microphoneDeviceIndex = 0;
-
-    private static bool s_isCalibrated;
+    private static int microphoneDeviceIndex = 0;
 
     // Current device name
-    private static string s_currentDeviceName;
+    private static string currentDeviceName;
 
     // Currently available devices (chached list)
-    private static string[] s_availableDevices;
-
-    // Flag if microphone currently is being callibrated
-    private bool m_isCalibrating;
+    private static string[] availableDevices;
 
     private bool m_micStartingUp;
-
-    // Stores the averaged volume-values during calibration
-    private List<float> m_volumeCalibrationList;
 
     private static float s_loudestVolume;
     private static float s_highestPitch;
@@ -49,39 +38,29 @@ public class MicrophoneInput
 
     #region " Properties "
 
-    /// <summary>
-    /// Returns ture if the Capturedevice has been calibrated with a base loudness
-    /// </summary>
-    public static bool IsCalibrated { get { return s_isCalibrated; } }
-
-    public static int CurrentDeviceIndex { get { return s_microphoneDeviceIndex; } 
+    public static int CurrentDeviceIndex { get { return microphoneDeviceIndex; } 
         set { 
-            s_microphoneDeviceIndex = value;
+            microphoneDeviceIndex = value;
             // Fetch device name, kinda costy so only do it when changing microphone
-            s_currentDeviceName = s_availableDevices[s_microphoneDeviceIndex]; 
+            currentDeviceName = availableDevices[microphoneDeviceIndex]; 
         } }
 
     public static string CurrentDeviceName 
     { 
         get 
         {
-            if (s_availableDevices != null && s_availableDevices.Length > 0) return s_currentDeviceName;
+            if (availableDevices != null && availableDevices.Length > 0) return currentDeviceName;
             else return "None";
         } 
     }
 
     public static bool IsRecording { get { return Microphone.IsRecording(CurrentDeviceName); } }
 
-    /// <summary>
-    /// Returns the calibrated base loudness
-    /// </summary>
-    public static float BaseLoudness { get { return s_baseLoudness; } }
-
     public static float LoudestVolume { get { return s_loudestVolume; } }
 
     public static float HighestPitch { get { return s_highestPitch; } }
 
-    public static int AvailableMics { get { return s_availableDevices.Length; } }
+    public static int AvailableMics { get { return availableDevices.Length; } }
 
     #endregion
 
@@ -90,7 +69,7 @@ public class MicrophoneInput
     public void OnInitialize() 
 	{
         // Fetch reference to audiosource
-        s_audioSource = Camera.main.GetComponent<AudioSource>();
+        audioSource = Camera.main.GetComponent<AudioSource>();
 
         // Init statistics
         s_loudestVolume = 0;
@@ -102,15 +81,15 @@ public class MicrophoneInput
     public static void InitDeviceList()
     {
         // Fetch available devices & current once
-        s_availableDevices = Microphone.devices;
-        s_currentDeviceName = s_availableDevices.Length > 0 ? s_availableDevices[s_microphoneDeviceIndex] : "None";
+        availableDevices = Microphone.devices;
+        currentDeviceName = availableDevices.Length > 0 ? availableDevices[microphoneDeviceIndex] : "None";
     }
 
     public void Update() 
 	{
         if (Microphone.GetPosition(CurrentDeviceName) > 0)
         {
-            s_audioSource.Play();
+            audioSource.Play();
             m_micStartingUp = false;
         }
     }
@@ -123,55 +102,6 @@ public class MicrophoneInput
 
 	#endregion
 
-    #region " Calibration "
-
-    /// <summary>
-    /// Calibrate the microphone by determing the base loudness by recording 
-    /// </summary>
-    /// <param name="recordDuration"></param>
-    public void StartCalibration()
-    {
-        // Reset values 
-        m_volumeCalibrationList = new List<float>();
-
-        // Set flag
-        m_isCalibrating = true;
-    }
-
-    /// <summary>
-    /// Returns the current calibration value
-    /// </summary>
-    public float GetCurrentCalibrationValueInDB()
-    {
-        if (m_volumeCalibrationList.Count > 0)
-        {
-            float rmsValue;
-            rmsValue = Mathf.Sqrt(m_volumeCalibrationList.Average()); // rms = square root of average
-            rmsValue = 20 * Mathf.Log10(rmsValue / 0.1f);
-
-            rmsValue = Mathf.Max(0.0f, rmsValue); // Make sure, the returned value is above 0
-
-            return rmsValue;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    public void StopCalibration()
-    {
-        // Calculate base-loudness
-        s_baseLoudness = m_volumeCalibrationList.Average();
-
-        // Set flags
-        m_isCalibrating = false;
-        s_isCalibrated = true;
-        m_volumeCalibrationList.Clear();
-    }
-
-    #endregion
-
     #region " Public Methods "
 
     /// <summary>
@@ -183,8 +113,8 @@ public class MicrophoneInput
         if (IsRecording) return; 
 
         // Start recording
-        s_audioSource.clip = Microphone.Start(CurrentDeviceName, true, 1, 44100);
-        s_audioSource.loop = true;
+        audioSource.clip = Microphone.Start(CurrentDeviceName, true, 1, 44100);
+        audioSource.loop = true;
 
         // Wait until recording has started
         m_micStartingUp = true;
@@ -193,18 +123,18 @@ public class MicrophoneInput
     public void StopRecording()
     {
         Microphone.End(CurrentDeviceName);
-        s_audioSource.Stop();
+        audioSource.Stop();
     }
 
     /// <summary>
     /// Returns the english musical notation of the current highest pitch (stat-value)
     /// </summary>
-    public static string GetHighestPitchNote()
+    public string GetHighestPitchNote()
     {
         return GetPitchNote(HighestPitch);
     }
 
-    public static string GetPitchNote(float pitch)
+    public string GetPitchNote(float pitch)
     {
         if (pitch >= 4186) return "C8";
         else if (pitch >= 3951) return "B7";
@@ -298,7 +228,7 @@ public class MicrophoneInput
        float[] sampleData = new float[sampleCount];
        float absoluteSum = 0;
 
-       s_audioSource.GetOutputData(sampleData, 0);
+       audioSource.GetOutputData(sampleData, 0);
 
        // Add absolute values
        foreach (float s in sampleData)
@@ -322,7 +252,7 @@ public class MicrophoneInput
         int maxN = 0;
 
         // Get sound spectrum
-        s_audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+        audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
         for (int i = 0; i < sampleCount; ++i)
         { // find max 
