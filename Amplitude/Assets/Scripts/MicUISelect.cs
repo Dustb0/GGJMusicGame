@@ -11,7 +11,7 @@ public class MicUISelect : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         MicrophoneInput.DeviceListChanged.AddListener(OnDeviceListChanged);
         UIDropdownElement = GetComponent<TMP_Dropdown>();
