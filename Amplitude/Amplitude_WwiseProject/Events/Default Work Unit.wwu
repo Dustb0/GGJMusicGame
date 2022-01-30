@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{7A571B11-48B5-495B-8D56-7FB959F86267}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{7A571B11-48B5-495B-8D56-7FB959F86267}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{7A571B11-48B5-495B-8D56-7FB959F86267}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Sun" ID="{104D1BD8-5F4B-4768-99D2-B2F00B3EF073}">
+					<ChildrenList>
+						<Action Name="" ID="{17E009BF-CBD8-412D-A4AB-72A9F6E7F468}" ShortID="892373008">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sun" ID="{67D5D9B5-22D0-45C5-AC8C-7184BF6D7355}" WorkUnitID="{8CFCBBE6-28D0-4D2F-9935-B50F4ED2FDD2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Sun" ID="{B852D3DC-33D8-4AE0-90BC-A2DA679E6C59}">
+					<ChildrenList>
+						<Action Name="" ID="{C93AAFAF-86E8-4548-9887-A31656BC7C3F}" ShortID="221772677">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sun" ID="{67D5D9B5-22D0-45C5-AC8C-7184BF6D7355}" WorkUnitID="{8CFCBBE6-28D0-4D2F-9935-B50F4ED2FDD2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

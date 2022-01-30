@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>/Users/luiszoran/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/UnityProject/Amplitude/Amplitude/Amplitude_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/luiszoran/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/UnityProject/Amplitude/Amplitude/Amplitude_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/luiszoran/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/UnityProject/Amplitude/Amplitude/Amplitude_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/luiszoran/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/UnityProject/Amplitude/Amplitude/Amplitude_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX" Hash="3618468431">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2889465584" Name="Play_Sun" ObjectPath="\Events\Default Work Unit\Play_Sun" MaxAttenuation="200." DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="545396" Language="SFX">
+							<ShortName>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</ShortName>
+							<Path>SFX/Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_77AC4D4E.wem</Path>
+						</File>
+						<File Id="184206291" Language="SFX">
+							<ShortName>235165__reitanna__giggle4.wav</ShortName>
+							<Path>SFX/235165__reitanna__giggle4_81E11355.wem</Path>
+						</File>
+						<File Id="219646026" Language="SFX">
+							<ShortName>85621__timbre__slow-helicopter.wav</ShortName>
+							<Path>SFX/85621__timbre__slow-helicopter_FA73F6B7.wem</Path>
+						</File>
+						<File Id="222961094" Language="SFX">
+							<ShortName>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</ShortName>
+							<Path>SFX/Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_D409E2F5.wem</Path>
+						</File>
+						<File Id="259418110" Language="SFX">
+							<ShortName>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</ShortName>
+							<Path>SFX/Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_2E04927E.wem</Path>
+						</File>
+						<File Id="415860808" Language="SFX">
+							<ShortName>235166__reitanna__giggle3.wav</ShortName>
+							<Path>SFX/235166__reitanna__giggle3_2BA505EF.wem</Path>
+						</File>
+						<File Id="515450610" Language="SFX">
+							<ShortName>235167__reitanna__giggle2.wav</ShortName>
+							<Path>SFX/235167__reitanna__giggle2_D1D41BA1.wem</Path>
+						</File>
+						<File Id="528757662" Language="SFX">
+							<ShortName>235168__reitanna__giggle.wav</ShortName>
+							<Path>SFX/235168__reitanna__giggle_B2C19F4C.wem</Path>
+						</File>
+						<File Id="569400087" Language="SFX">
+							<ShortName>235166__reitanna__giggle3.wav</ShortName>
+							<Path>SFX/235166__reitanna__giggle3_76F76507.wem</Path>
+						</File>
+						<File Id="605207322" Language="SFX">
+							<ShortName>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</ShortName>
+							<Path>SFX/Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_10A2331E.wem</Path>
+						</File>
+						<File Id="753183876" Language="SFX">
+							<ShortName>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</ShortName>
+							<Path>SFX/Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_A64E614C.wem</Path>
+						</File>
+						<File Id="1038388175" Language="SFX">
+							<ShortName>235165__reitanna__giggle4.wav</ShortName>
+							<Path>SFX/235165__reitanna__giggle4_169D0524.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="505837746" Name="Stop_Sun" ObjectPath="\Events\Default Work Unit\Stop_Sun" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

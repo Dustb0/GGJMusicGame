@@ -1,6 +1,478 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8CFCBBE6-28D0-4D2F-9935-B50F4ED2FDD2}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{8CFCBBE6-28D0-4D2F-9935-B50F4ED2FDD2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8CFCBBE6-28D0-4D2F-9935-B50F4ED2FDD2}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Ambience" ID="{130CD2F2-6541-4C33-9D19-162DFB894CC7}" ShortID="689956751">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Attenuation" ID="{9C7D2FBF-FCAE-4232-92C4-EB89791A16AE}" WorkUnitID="{2F6106DE-2A5E-4CC1-8A14-465CDB7ABF08}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<BlendContainer Name="Sun" ID="{67D5D9B5-22D0-45C5-AC8C-7184BF6D7355}" ShortID="681037040">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Giggle" ID="{184F651C-BB71-4199-8F6D-2C23B4C7A7FF}" ShortID="915012189">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A25E9698-A311-443D-AC94-717FF52F6021}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="1000"/>
+															<Property Name="Min" Type="Real64" Value="-1000"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2.5">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{7A46CC6F-0710-4150-A3A4-08C5D1261CE5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="1"/>
+															<Property Name="Min" Type="Real64" Value="-1"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="235166__reitanna__giggle3" ID="{015F7C7F-2E99-454F-9FEC-268458F01C33}" ShortID="169927046">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235166__reitanna__giggle3" ID="{8C75D29E-9764-46FF-AC54-3E5A85CE6899}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0113724415204678"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0352545687134503"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.068234649122807"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.3889375"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235166__reitanna__giggle3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="415860808"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235166__reitanna__giggle3" ID="{8C75D29E-9764-46FF-AC54-3E5A85CE6899}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="235168__reitanna__giggle" ID="{6103DD48-C628-4A52-B55E-35A9242DE2B3}" ShortID="381910036">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235168__reitanna__giggle" ID="{08BA6FC7-EBE6-44A0-918C-ECB6803F533C}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0119158747563353"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.00641624025341131"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.156739583333333"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.499550134015595"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235168__reitanna__giggle.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="528757662"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235168__reitanna__giggle" ID="{08BA6FC7-EBE6-44A0-918C-ECB6803F533C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="235167__reitanna__giggle2" ID="{1AB946D3-1F72-44EB-83B6-B44E13ED78D7}" ShortID="1022710604">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235167__reitanna__giggle2" ID="{BEA05D9B-A3A8-40DE-B3E9-177F497F5227}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0100823282163743"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0366630116959065"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.114571911549708"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.407876005116959"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235167__reitanna__giggle2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="515450610"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235167__reitanna__giggle2" ID="{BEA05D9B-A3A8-40DE-B3E9-177F497F5227}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="235165__reitanna__giggle4" ID="{85BA4B71-5FFE-4D8B-BA33-85D07E5DAE59}" ShortID="1015794817">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235165__reitanna__giggle4" ID="{406B61CE-B253-4994-AE4A-46C7D4C62D0B}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0127302631578947"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0203684210526316"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0814736842105263"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.590684210526315"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235165__reitanna__giggle4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="184206291"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235165__reitanna__giggle4" ID="{406B61CE-B253-4994-AE4A-46C7D4C62D0B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="235165__reitanna__giggle4_01" ID="{CEDA496C-3AFF-4875-BC39-D5AA7B3BC363}" ShortID="239816202">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235165__reitanna__giggle4" ID="{CF05EC29-D188-431E-826F-4D7D4DAB0A59}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0127302631578947"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0203684210526316"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.402276315789474"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.725625"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235165__reitanna__giggle4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1038388175"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235165__reitanna__giggle4" ID="{CF05EC29-D188-431E-826F-4D7D4DAB0A59}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="235166__reitanna__giggle3_01" ID="{8FA4E0F3-961A-434A-8FD2-BC7C808B6D64}" ShortID="604707053">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="235166__reitanna__giggle3" ID="{61814DA5-971B-451E-8780-D961EF8FD911}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.00796070906432744"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.00796070906432744"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.213801900584795"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.676660270467836"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>235166__reitanna__giggle3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="569400087"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="235166__reitanna__giggle3" ID="{61814DA5-971B-451E-8780-D961EF8FD911}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{6239D051-62D8-4A65-BD37-E2975699638E}" ShortID="784506168">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{7F3CDB36-E5EA-495C-8A9B-EC5B04990E16}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0739571911549708"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0443743146929825"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.170101539656433"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.07977499086257"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="753183876"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{7F3CDB36-E5EA-495C-8A9B-EC5B04990E16}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_01" ID="{CED20FE1-6F1E-4740-B6F4-7ED5B342B552}" ShortID="367323674">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{A4DD6932-AD1A-4AAE-B7E6-AB6451FD86DC}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0739571911549708"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0443743146929825"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="1.07237927174708"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.50133098044591"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="259418110"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{A4DD6932-AD1A-4AAE-B7E6-AB6451FD86DC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_02" ID="{D2887BE6-0DF7-4CAB-A588-609A718C4EE4}" ShortID="212769001">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{292AA93F-2740-48F5-B740-16D48C1FEBA8}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0739571911549708"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0443743146929825"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="2.40360871253655"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.83995614035088"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="605207322"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{292AA93F-2740-48F5-B740-16D48C1FEBA8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_03" ID="{AC150613-F4DB-4D4F-972E-67F77B806E11}" ShortID="613117093">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{04D985FD-7DE5-49BC-91D6-0C558F1615E0}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0739571911549708"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0443743146929825"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.83098250182749"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.40784859283626"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="222961094"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{04D985FD-7DE5-49BC-91D6-0C558F1615E0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks_04" ID="{5918168C-C307-4381-B23A-FD9F2F413AB7}" ShortID="849342636">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{1674ED93-F5BA-4F18-9787-4A13C193C99B}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0739571911549708"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0443743146929825"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="4.22295561494883"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.85159173976608"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="545396"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Kieuk,laughter,female,30s,American,NEUnitedStates,aww,nominal,tapering,staggered,breathy,mouthclicks" ID="{1674ED93-F5BA-4F18-9787-4A13C193C99B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<ObjectLists/>
+								</RandomSequenceContainer>
+								<Sound Name="85621__timbre__slow-helicopter" ID="{DE78C0F2-769C-48FA-9C2D-AAA3CD5A5B54}" ShortID="7232">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-330</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F3590065-EB08-43F7-8469-1C66F22DB55F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{663BAFBD-2266-46FE-B3A3-AF639A3A0256}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="85621__timbre__slow-helicopter" ID="{C5548ECE-0BCA-4EAE-A220-EA9546D9CBE0}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.149959389213775"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0676000251902815"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.269926900584795"/>
+												<Property Name="TrimEnd" Type="Real64" Value="5.62639766885632"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>85621__timbre__slow-helicopter.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="219646026"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="85621__timbre__slow-helicopter" ID="{C5548ECE-0BCA-4EAE-A220-EA9546D9CBE0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+							<BlendTrackList>
+								<BlendTrack Name="SunBlend" ID="{6001A20F-5B65-41E4-8460-8D15CF4DE22E}" ShortID="21977026">
+									<BlendTrackAssocList>
+										<BlendTrackAssoc>
+											<ItemRef Name="85621__timbre__slow-helicopter" ID="{DE78C0F2-769C-48FA-9C2D-AAA3CD5A5B54}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="Giggle" ID="{184F651C-BB71-4199-8F6D-2C23B4C7A7FF}"/>
+										</BlendTrackAssoc>
+									</BlendTrackAssocList>
+								</BlendTrack>
+							</BlendTrackList>
+						</BlendContainer>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
