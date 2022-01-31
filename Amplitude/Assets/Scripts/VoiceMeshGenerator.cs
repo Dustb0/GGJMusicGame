@@ -20,7 +20,7 @@ public class VoiceMeshGenerator : MonoBehaviour
     PolygonCollider2D collider;
     MeshFilter meshFilter;
     Mesh mesh;
-    bool isGenerating = false;
+    public bool isGenerating { get; private set; } = false;
 
     // Start is called before the first frame update
     void Start()

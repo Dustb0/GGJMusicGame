@@ -10,7 +10,6 @@ public class Rb2DMovement : MonoBehaviour
     [SerializeField] string m_horizontalAxis = "Horizontal";
     [SerializeField] string m_jumpButton = "Jump";
 
-
     bool m_canJump = false;
 
     private void Awake()
@@ -47,7 +46,7 @@ public class Rb2DMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D _collision)
     {
-        if (_collision.gameObject.CompareTag("Ground"))
+        if (_collision.gameObject.CompareTag("Ground") || _collision.gameObject.CompareTag("GeneratedGround"))
         {
             m_canJump = true;
             m_rb2D.gravityScale = 0.5f;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PitchDetector;
+using UnityEngine.Events;
 
 public class ListenerComponent : MonoBehaviour
 {
@@ -11,30 +12,31 @@ public class ListenerComponent : MonoBehaviour
     public float pitchHeight { get; private set; }
 
     public float pitchHeightSmoothed { get; private set; }
-
     public float pitchTangent { get; private set; }
 
     public float volume { get; private set; }
-    public float volumeHeight { get; private set; }
-    public float volumeTangent { get; private set; }
+    public float volumeSmoothed { get; private set; }
 
     public int midiMax;
     public int midiMin;
 
-    public Vector2 inputVolumeRange;
-    public Vector2 inputPitchRange;
-    public Vector2 outputHeightRange;
-
     public GameObject objectToPlot;
     public float transpose;
     public MicrophonePitchDetector detector;
-    public float dbThreshold;
-
-    public float scaleMin = 0.3f;
-    public float scaleMax = 3f;
+    public float dbSensitivityThreshold;
 
     public float pitchSmoothing = 2.0f;
 
+    public bool isSilent { get; private set; }
+    public float timeToSilence = 0.1f;
+    public bool waitForSpaceBeforeStart;
+    public UnityEvent OnStartSilence;
+    public UnityEvent OnStopSilence;
+
+    private float timeSilent = 0f;
+    private float timeNotSilent;
+
+    private bool isRecording;
 
     private Queue<PitchTime> drawQueue = new Queue<PitchTime>();
     private float appTime = 0f;
@@ -77,13 +79,12 @@ public class ListenerComponent : MonoBehaviour
     void Start()
     {
         detector.onPitchDetected.AddListener(PlotPitch);
-        detector.ToggleRecord();
     }
 
     private void PlotPitch(List<float> pitchList, int samples, float db)
     {
         var duration = (float)samples / (float)detector.micSampleRate;
-        if (pitchList.Count > 0 && db > dbThreshold)
+        if (pitchList.Count > 0 && db > dbSensitivityThreshold)
         {
             foreach (var pitchVal in pitchList)
             {
@@ -95,19 +96,28 @@ public class ListenerComponent : MonoBehaviour
             drawQueue.Enqueue(new PitchTime(0f, duration, db));
         }
 
+        /*
         float pitchheightLast = pitchHeight;
         pitchHeight = Unity.Mathematics.math.remap(inputPitchRange.x, inputPitchRange.y, outputHeightRange.x, outputHeightRange.y, pitch);
-        pitchTangent = pitchHeight - pitchheightLast;
+        pitchTangent = pitchHeight - pitchheightLast;*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        if((!waitForSpaceBeforeStart || Input.GetKey(KeyCode.Space)) && !isRecording)
+        {
+            detector.ToggleRecord();
+            isRecording = true;
+        }
+
         if (!detector.Record)
         {
             return;
         }
         appTime += Time.deltaTime;
+        bool silenceDetected = true;
+
         while (analysisTime < appTime && drawQueue.Count > 0)
         {
             var item = drawQueue.Dequeue();
@@ -118,12 +128,35 @@ public class ListenerComponent : MonoBehaviour
                 pitchHeight = MidiToScreenY(midi);
                 pitchHeightSmoothed = pitchHeightPrevious + (pitchHeight - pitchHeightPrevious) / pitchSmoothing;
                 pitch = item.pitch;
+
+                float volumePrevious = volume;
+                volume = 0f-item.db;
+                volumeSmoothed = volumePrevious + (volume - volumePrevious) / pitchSmoothing;
+
+                silenceDetected = false;
+                timeSilent = 0f;
+
+                if(isSilent)
+                {
+                    isSilent = false;
+                    OnStopSilence.Invoke();
+                }
             }
             else
             {
                 // Do something when there is no pitch detected
             }
             analysisTime += item.dt;
+        }
+        if (silenceDetected)
+        {
+            
+            timeSilent += Time.deltaTime;
+            if (timeSilent > timeToSilence)
+            {
+                isSilent = true;
+                OnStartSilence.Invoke();
+            }
         }
     }
 }

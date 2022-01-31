@@ -53,30 +53,36 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\VoiceMeshGenerator.cs" />
-    <Compile Include="Assets\Scripts\MicrophoneInput.cs" />
-    <Compile Include="Assets\Scripts\ListenerComponent.cs" />
-    <Compile Include="Assets\Scripts\MicUISelect.cs" />
-    <Compile Include="Assets\Scripts\VoiceSplineGenerator.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Rb2DMovement.cs" />
-    <Compile Include="Assets\Scripts\SmoothCamFollow.cs" />
-    <Compile Include="Assets\Scripts\PlayerAnimationDriver.cs" />
-    <Compile Include="Assets\Scripts\ConstantRotation.cs" />
-    <Compile Include="Assets\Scripts\SineRotation.cs" />
     <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\Window.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\ToggleText.cs" />
+    <Compile Include="Assets\Scripts\parallax.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimationDriver.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\CollectibleCoin.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\RAPTPitchDetectorExtensions.cs" />
+    <Compile Include="Assets\Scripts\VoiceMeshGenerator.cs" />
+    <Compile Include="Assets\Scripts\ConstantRotation.cs" />
+    <Compile Include="Assets\Scripts\MicrophoneInput.cs" />
     <Compile Include="Assets\HumanVoicePitchDetector\Scripts\TextMeshSharpener.cs" />
     <Compile Include="Assets\HumanVoicePitchDetector\Scripts\MicrophoneDemo.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\Downsample.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\ToggleText.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\MicrophonePitchDetector.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\Params.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\AutoDestroy.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\ArrayPool.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\RAPTPitchDetectorExtensions.cs" />
-    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\RAPTPitchDetector.cs" />
     <Compile Include="Assets\Scripts\MicrophonePlotter.cs" />
-    <Compile Include="Assets\Scripts\parallax.cs" />
+    <Compile Include="Assets\Scripts\ListenerComponent.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\Params.cs" />
+    <Compile Include="Assets\Scripts\MicUISelect.cs" />
+    <Compile Include="Assets\Scripts\Rb2DMovement.cs" />
+    <Compile Include="Assets\Scripts\SmoothCamFollow.cs" />
+    <Compile Include="Assets\Scripts\SpaceToDestroy.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\ArrayPool.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\MicrophonePitchDetector.cs" />
+    <Compile Include="Assets\Scripts\VoiceSplineGenerator.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\AutoDestroy.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SineRotation.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\Downsample.cs" />
+    <Compile Include="Assets\Scripts\CoinScore.cs" />
+    <Compile Include="Assets\HumanVoicePitchDetector\Scripts\PitchDetector\RAPTPitchDetector.cs" />
+    <Compile Include="Assets\Scripts\EscapeToQuit.cs" />
+    <Compile Include="Assets\Scripts\SingingAnimationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
